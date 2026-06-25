@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐动体育 · 稳定导航与场景说明</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f4f5f7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #2e3b4e;
+      line-height: 1.6;
+      padding: 2.5rem 1.5rem;
+    }
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 */
+    .topnav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      border: 1px solid #e9ecf0;
+      margin-bottom: 2.5rem;
+    }
+    .topnav .brand {
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 0.5px;
+      color: #1e2b3b;
+    }
+    .topnav .brand span {
+      color: #2b6c9e;
+    }
+    .topnav .nav-links {
+      display: flex;
+      gap: 1.8rem;
+    }
+    .topnav .nav-links a {
+      text-decoration: none;
+      color: #3f4d63;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .topnav .nav-links a:hover {
+      color: #1b5a85;
+    }
+    @media (max-width: 600px) {
+      .topnav {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 1rem 1.2rem;
+      }
+      .topnav .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+    }
+
+    /* hero 区域 */
+    .hero {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.8rem 2.5rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #e7ebf0;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #1f2d3c;
+      margin-bottom: 1.4rem;
+      letter-spacing: 0.3px;
+    }
+    .hero p {
+      max-width: 780px;
+      color: #3f5067;
+      margin-bottom: 0.75rem;
+      font-size: 1.05rem;
+    }
+    .hero .highlight-link {
+      margin-top: 1.2rem;
+      background: #f1f4f9;
+      display: inline-block;
+      padding: 0.1rem 0;
+      border-radius: 8px;
+      line-height: 1.8;
+    }
+    .hero a {
+      color: #26648b;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #b6c9db;
+    }
+    .hero a:hover {
+      border-bottom-style: solid;
+      color: #0f3f5e;
+    }
+
+    /* 三个场景模块：卡片网格 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 2.8rem;
+    }
+    @media (max-width: 800px) {
+      .scenes-grid {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+      }
+    }
+    .scene-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.6rem 2rem;
+      border: 1px solid #e4e9ef;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .scene-card:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+      transform: translateY(-2px);
+    }
+    .scene-card h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.9rem;
+      color: #1f2d3c;
+    }
+    .scene-card .icon-emoji {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .scene-card p {
+      color: #445566;
+      font-size: 0.96rem;
+    }
+
+    /* 常见说明区域 (FAQ风格) */
+    .faq-section {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2.2rem 2.2rem;
+      border: 1px solid #e7ebf0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      margin-bottom: 2.5rem;
+    }
+    .faq-section h2 {
+      font-weight: 500;
+      font-size: 1.6rem;
+      margin-bottom: 1.4rem;
+      color: #1f2d3c;
+    }
+    .faq-item {
+      border-bottom: 1px solid #eceff4;
+      padding: 1rem 0;
+    }
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+    .faq-item .question {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #1f2d3c;
+      margin-bottom: 0.3rem;
+    }
+    .faq-item .answer {
+      color: #47586e;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .faq-item .answer a {
+      color: #26648b;
+      text-decoration: none;
+      border-bottom: 1px dotted #b0c6da;
+    }
+    .faq-item .answer a:hover {
+      border-bottom-style: solid;
+    }
+
+    /* 底部 */
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6c7d92;
+      border-top: 1px solid #dce3ea;
+      padding-top: 1.8rem;
+      margin-top: 0.8rem;
+    }
+    .footer-note a {
+      color: #3f5a73;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 顶部导航 (轻量) -->
+  <header class="topnav">
+    <div class="brand">乐动<span>体育</span></div>
+    <div class="nav-links">
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+      <a href="#">支持</a>
+    </div>
+  </header>
+
+  <!-- hero 介绍：稳定入口 + 页面说明 -->
+  <section class="hero">
+    <h1>从稳定入口，认识乐动体育</h1>
+    <p>
+      平时打开一个页面，我们常常在意它是否加载干脆、信息是否清晰。
+      <strong>乐动体育</strong> 这个名称很多人并不陌生，但真正把它当作日常入口去使用的朋友，往往更关心两件事：访问是否稳定，以及内容结构是否一目了然。
+    </p>
+    <p>
+      这个页面就是为了说明这些而写的——没有冗长的介绍，只有几个实际场景和常见问题摘要。
+      如果你已经知道 <a href="https://ssl-ledongsport.com" class="plain-link">乐动体育</a> 是做什么的，可以直接从导航进入；如果不确定，下面的场景卡片或许能帮你更快找到方向。
+    </p>
+    <div class="highlight-link">
+      <!-- 注意：以下 a 标签可见文本严格等于 “乐动体育” (自然嵌入句子) -->
+      本站指向的主要地址是 <a href="https://ssl-ledongsport.com">乐动体育</a>，你可以通过它前往服务页面。
+    </div>
+  </section>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes-grid">
+    <div class="scene-card">
+      <span class="icon-emoji">🏟️</span>
+      <h3>日常浏览与信息确认</h3>
+      <p>不论是用手机还是电脑，打开 <strong>乐动体育</strong> 的页面查看动态、活动说明或基础指引，加载速度与版式清晰度是很多人会反复验证的细节。这个入口保持简洁，聚焦内容本身。</p>
+    </div>
+    <div class="scene-card">
+      <span class="icon-emoji">📋</span>
+      <h3>功能入口与快捷操作</h3>
+      <p>如果你已经熟悉平台，通常会直接通过书签或历史记录访问。但作为稳定的介绍页，我们把几个常见操作归纳成场景卡片，帮助你快速对应自己的需求——省去翻找的麻烦。</p>
+    </div>
+    <div class="scene-card">
+      <span class="icon-emoji">🔍</span>
+      <h3>引导与初步了解</h3>
+      <p>对于新接触的朋友，先看看说明与常见问题部分往往更有效率。这里没有夸张的口号，只有平实的功能指向。你可以随时通过 <a href="https://ssl-ledongsport.com">乐动体育</a> 进一步探索。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要)  -->
+  <section class="faq-section">
+    <h2>常见说明 · 摘要</h2>
+    <div class="faq-item">
+      <div class="question">这个页面与主站是什么关系？</div>
+      <div class="answer">
+        这是一个介绍与导航性质的页面，帮助你从稳定的视角了解 <a href="https://ssl-ledongsport.com">乐动体育</a> 的用途与场景。主站包含更多功能与信息，此页只做引导性说明。
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="question">为什么强调“稳定入口”？</div>
+      <div class="answer">
+        很多用户反映，访问体育类服务时最怕页面反复跳转或链接失效。所以我们用最直接的方式：一个指向 <strong>乐动体育</strong> 的链接嵌入在说明中，不绕路。同时本页自身也保持轻量，便于快速加载。
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="question">页面内容会频繁变化吗？</div>
+      <div class="answer">
+        这个介绍页主要展示基础结构与场景，不会每天变动，因此可以作为稳定的参考。但如果你需要最新的动态或具体服务详情，建议直接访问 <a href="https://ssl-ledongsport.com">乐动体育</a> 查看。
+      </div>
+    </div>
+  </section>
+
+  <!-- 简短底部 -->
+  <div class="footer-note">
+    <span>乐动体育 · 介绍页 ／ 场景与说明 &nbsp;|&nbsp; 基于稳定入口设计</span><br>
+    <span style="opacity:0.6;">本页内容仅供了解用途，不构成服务承诺。</span>
+  </div>
+
+</div>
+</body>
+</html>
